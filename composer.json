@@ -1,0 +1,16 @@
+{
+    "name": "jalal/tour-telegram-bot",
+    "description": "send reservation for tours to telegram channel",
+    "autoload": {
+        "psr-4": {
+            "Jalal\\TourTelegramBot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jalal alirezaei",
+            "email": "jalalpoker1@gamil.com"
+        }
+    ],
+    "require": {}
+}
