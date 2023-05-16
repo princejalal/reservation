@@ -21,7 +21,7 @@ class FullReservationCreator implements ReservationCreator {
 
     public function __construct($reservation, $siteName)
     {
-        $this->config = include_once '../config.php';
+        $this->config = include (__DIR__.'/../config/reservation-config.php');;
         $this->getConfigValue('chatId');
         $this->getConfigValue('botToken');
         $this->siteName = $siteName;
