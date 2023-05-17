@@ -3,7 +3,6 @@
 namespace Jalal\TourTelegramBot\Reservation;
 
 use Telegram\Bot\Api;
-use function Symfony\Component\Translation\t;
 
 class FullReservationCreator implements ReservationCreator {
 
@@ -11,7 +10,7 @@ class FullReservationCreator implements ReservationCreator {
 
     private $config;
 
-    private $template = 'fullReservation';
+    private $template = 'telegram.fullReservation';
 
     private $siteName;
 

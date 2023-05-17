@@ -10,7 +10,7 @@ class FastReservationCreator implements ReservationCreator {
 
     private $config;
 
-    private $template = 'fullReservation';
+    private $template = 'telegram.fastReservation';
 
     private $siteName;
 
