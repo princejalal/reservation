@@ -1,5 +1,5 @@
 {
-    "name": "jalal/tour-telegram-bot",
+    "name": "tour-reservation/tour-telegram-bot",
     "description": "send reservation for tours to telegram channel",
     "autoload": {
         "psr-4": {
