@@ -20,7 +20,11 @@ class FastReservationCreator implements ReservationCreator {
 
     public function __construct($reservation, $siteName)
     {
-        $this->config = include (__DIR__.'/../config/reservation-config.php');
+        if (file_exists(__DIR__ . '/../config/reservation-config.php')) {
+            $this->config = include (__DIR__.'/../config/reservation-config.php');
+        } else {
+            $this->config = include (__DIR__.'/config.php');
+        }
         $this->getConfigValue('chatId');
         $this->getConfigValue('botToken');
         $this->siteName = $siteName;
@@ -56,7 +60,7 @@ class FastReservationCreator implements ReservationCreator {
         ];
     }
 
-    private function getConfigValue($key): string
+    private function getConfigValue($key)
     {
         if (isset($this->config[$key])) {
             $this->$key = $this->config[$key];
