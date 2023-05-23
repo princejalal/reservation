@@ -54,7 +54,7 @@ class FastReservationCreator implements ReservationCreator {
     public function formatText($reservation)
     {
         return [
-            'number'   => $reservation->number,
+            'number'   => $reservation->phone_number,
             'userLang' => $reservation->user_lang,
             'siteName' => $this->siteName
         ];
