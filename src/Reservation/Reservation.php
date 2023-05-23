@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Jalal\TourTelegramBot\Reservation;
 abstract class Reservation {
-    protected string $siteName;
+    protected $siteName;
 
     public function __construct($siteName)
     {

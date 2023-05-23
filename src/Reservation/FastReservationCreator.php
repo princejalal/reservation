@@ -40,7 +40,7 @@ class FastReservationCreator implements ReservationCreator {
         }
         // trying to make request and send notification
         try {
-            $bot = new Api($this->botToken);
+            $bot = new Api($this->botToken,true);
             $bot->sendMessage([
                 $this->chatId,
                 'parse_mode' => 'HTML',
