@@ -70,7 +70,7 @@ class FullReservationCreator implements ReservationCreator {
         ];
     }
 
-    private function getConfigValue($key): string
+    private function getConfigValue($key)
     {
         if (isset($this->config[$key])) {
             $this->$key = $this->config[$key];
