@@ -20,7 +20,11 @@ class FullReservationCreator implements ReservationCreator {
 
     public function __construct($reservation, $siteName)
     {
-        $this->config = include (__DIR__.'/../config/reservation-config.php');;
+        if (file_exists(config_path('reservation-config.php'))) {
+            $this->config = include config_path('reservation-config.php');
+        } else {
+            $this->config = include(__DIR__ . '/config.php');
+        }
         $this->getConfigValue('chatId');
         $this->getConfigValue('botToken');
         $this->siteName = $siteName;
@@ -29,7 +33,7 @@ class FullReservationCreator implements ReservationCreator {
 
     public function send()
     {
-        $text = view($this->template,$this->formatText($this->reservation))->render();
+        $text = view($this->template, $this->formatText($this->reservation))->render();
 
         if (!$this->botToken || !$this->chatId) {
             throw new \InvalidArgumentException('Bot token or chat id is not defined for Telegram Reservation');
@@ -38,7 +42,7 @@ class FullReservationCreator implements ReservationCreator {
         try {
             $bot = new Api($this->botToken);
             $bot->sendMessage([
-                $this->chatId,
+                'chat_id'    => $this->chatId,
                 'parse_mode' => 'HTML',
                 'text'       => $text
             ]);

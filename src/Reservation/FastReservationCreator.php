@@ -20,8 +20,8 @@ class FastReservationCreator implements ReservationCreator {
 
     public function __construct($reservation, $siteName)
     {
-        if (file_exists(__DIR__ . '/../config/reservation-config.php')) {
-            $this->config = include (__DIR__.'/../config/reservation-config.php');
+        if (file_exists(config_path('reservation-config.php'))) {
+            $this->config = include config_path('reservation-config.php');
         } else {
             $this->config = include (__DIR__.'/config.php');
         }
@@ -40,9 +40,9 @@ class FastReservationCreator implements ReservationCreator {
         }
         // trying to make request and send notification
         try {
-            $bot = new Api($this->botToken,true);
+            $bot = new Api($this->botToken, true);
             $bot->sendMessage([
-                $this->chatId,
+                'chat_id'    => $this->chatId,
                 'parse_mode' => 'HTML',
                 'text'       => $text
             ]);
