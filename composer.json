@@ -1,6 +1,7 @@
 {
     "name": "tour-reservation/tour-telegram-bot",
     "description": "send reservation for tours to telegram channel",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Jalal\\TourTelegramBot\\": "src/"
